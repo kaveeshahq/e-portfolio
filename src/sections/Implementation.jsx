@@ -32,256 +32,275 @@ export default function Implementation() {
         </p>
       </Card>
 
-      {/* Step by Step */}
-      <div className="mt-8">
+      {/* Step by Step - Only descriptions, videos below each */}
+      <div className="mt-8 mb-8">
         <h3 className="text-lg font-medium text-gray-800 mb-6">
-          What happened on the day — step by step
+          What happened on the day — Evidence
         </h3>
 
-        <ProgrammeStep
-          number="1"
-          title="Drama performance — opening the session"
-          text="The session was opened with the drama portraying a relatable scenario from everyday Mediriwila village life. The drama depicted how a family's low protein intake and sedentary habits led to health problems. It immediately captured participants' attention and created engagement for the rest of the programme."
-        />
-        <ProgrammeStep
-          number="2"
-          title="Recipe guessing session"
-          text="Group members presented actual foods that had been prepared in advance and invited community participants to smell, observe, and guess the dishes and their key ingredients. This interactive tasting activity introduced high-protein plant-based recipes in an enjoyable, hands-on format."
-        />
-        <ProgrammeStep
-          number="3"
-          title="Physical activity session"
-          text="A structured physical activity session was conducted, specially designed for adults of various fitness levels. Simple, low-impact exercises were demonstrated and participants were invited to join in. The session showed that physical activity can be done comfortably in everyday village settings."
-        />
-        <ProgrammeStep
-          number="4"
-          title="Clay food model identification game"
-          text="The handmade clay food models were used in an interactive identification game. Community members identified which models represented protein-rich foods and categorised them. Community members engaged enthusiastically with many correctly identifying plant protein sources they had not recognised before."
-        />
-        <ProgrammeStep
-          number="5"
-          title="Distribution of seeds and recipe sheets"
-          text="Seeds of protein-rich plants were distributed to each participant to encourage home growing as a practical, sustainable long-term strategy. Recipe sheets featuring affordable, high-protein dishes using locally available ingredients were also distributed as take-home resources."
-        />
-        <ProgrammeStep
-          number="6"
-          title="Feedback session"
-          text="A structured feedback session was conducted using a dot-sticker board, where participants placed stickers to indicate their responses and level of understanding. Verbal feedback was also invited. Participants gave positive feedback about the programme's content, drama, and interactive activities."
-        />
-      </div>
+        {/* Step 1: Drama Performance */}
+        <div className="mb-12">
+          <h4 className="font-medium text-gray-800 mb-2 flex items-center gap-2">
+            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-600 text-white text-sm">
+              1
+            </span>
+            Drama performance — opening the session
+          </h4>
+          <p className="text-gray-700 text-sm leading-relaxed mb-4">
+            The session was opened with the drama portraying a relatable
+            scenario from everyday Mediriwila village life. The drama depicted
+            how a family's low protein intake and sedentary habits led to health
+            problems. It immediately captured participants' attention and
+            created engagement for the rest of the programme.
+          </p>
 
-      {/* Drama Practice Video */}
-      <div className="mt-8 mb-8">
-        <h3 className="text-lg font-medium text-gray-800 mb-2">
-          Drama performance — Evidence
-        </h3>
-        <p className="text-sm text-gray-600 mb-6">
-          Drama practice session showing the opening performance that captured
-          participants' attention and created engagement for the programme
-        </p>
-
-        {/* Video Container */}
-        <div className="max-w-2xl mx-auto">
-          <div className="bg-black rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-            <div className="relative bg-gray-900 aspect-video w-full">
-              <video
-                controls
-                preload="metadata"
-                className="w-full h-full object-cover"
-                title="Drama Performance Practice"
-                aria-label="Drama performance practice video showing opening session performance"
-              >
-                <source
-                  src="/assets/videos/programme/drama practice.mp4"
-                  type="video/mp4"
-                />
-                <p className="absolute inset-0 flex items-center justify-center text-white text-sm bg-gray-900">
-                  Your browser does not support the video tag. Please update
-                  your browser to watch this video.
-                </p>
-              </video>
-            </div>
-
-            {/* Video Info */}
-            <div className="p-4 bg-gradient-to-t from-green-50 to-white border-t border-green-100">
-              <p className="text-sm font-medium text-gray-800">
-                Drama Performance Practice
-              </p>
-              <p className="text-xs text-green-600 mt-2">
-                Opening Session • Engagement Activity
-              </p>
-              <p className="text-xs text-gray-500 mt-2 italic">
-                💾 Video file format: MP4
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Community Notice Photo */}
-      <div className="mt-8 mb-8">
-        <h3 className="text-lg font-medium text-gray-800 mb-2">
-          Community notice — Evidence
-        </h3>
-        <p className="text-sm text-gray-600 mb-6">
-          A community poster distributed to the community to invite
-          participation
-        </p>
-        <div className="max-w-md mx-auto">
-          <div className="group">
-            <div className="relative bg-white border border-gray-200 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              {/* Image */}
-              <div className="aspect-square bg-gray-100 overflow-hidden relative">
-                <img
-                  src="/assets/photos/intervention/01-community-notice-sinhala.jfif"
-                  alt="Community Notice (Sinhala)"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  onError={(e) => {
-                    e.target.src =
-                      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect fill='%23e5e7eb' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%239ca3af'%3EImage not loaded%3C/text%3E%3C/svg%3E";
-                  }}
-                />
+          {/* Video */}
+          <div className="max-w-2xl mx-auto mb-8">
+            <div className="bg-black rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div className="relative bg-gray-900 aspect-video w-full">
+                <video
+                  controls
+                  preload="metadata"
+                  className="w-full h-full object-cover"
+                  title="Drama Performance"
+                  aria-label="Drama performance video showing opening session"
+                >
+                  <source
+                    src="/assets/videos/programme/drama-doing.mp4"
+                    type="video/mp4"
+                  />
+                  <p className="absolute inset-0 flex items-center justify-center text-white text-sm bg-gray-900">
+                    Your browser does not support the video tag.
+                  </p>
+                </video>
               </div>
-
-              {/* Caption */}
-              <div className="p-4 bg-gradient-to-t from-green-50 to-white">
-                <p className="text-sm font-medium text-gray-800">
-                  Community Notice — නිරෝගී හෙතකට
+              <div className="p-3 bg-gradient-to-t from-green-50 to-white border-t border-green-100">
+                <p className="text-xs font-medium text-gray-800">
+                  Drama Performance
                 </p>
-                <p className="text-xs text-green-600 mt-2">
-                  Sinhala & English Poster • Community Invitation
+                <p className="text-xs text-green-600 mt-1">
+                  Opening Activity • Engagement
                 </p>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Recipe Sheets Photo */}
-      <div className="mt-8 mb-8">
-        <h3 className="text-lg font-medium text-gray-800 mb-4">
-          Recipe sheets — Evidence
-        </h3>
-        <p className="text-sm text-gray-600 mb-6">
-          Take-home recipe cards featuring high-protein dishes prepared from
-          affordable, locally available plant protein sources
-        </p>
-        <div className="max-w-md mx-auto">
-          <div className="group">
-            <div className="relative bg-white border border-gray-200 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              {/* Image */}
-              <div className="aspect-square bg-gray-100 overflow-hidden relative">
-                <img
-                  src="/assets/photos/intervention/03-recipe-sheets.png"
-                  alt="Recipe Sheets"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  onError={(e) => {
-                    e.target.src =
-                      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect fill='%23e5e7eb' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%239ca3af'%3EImage not loaded%3C/text%3E%3C/svg%3E";
-                  }}
-                />
+        {/* Step 2: Recipe Guessing */}
+        <div className="mb-12">
+          <h4 className="font-medium text-gray-800 mb-2 flex items-center gap-2">
+            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-600 text-white text-sm">
+              2
+            </span>
+            Recipe guessing session
+          </h4>
+          <p className="text-gray-700 text-sm leading-relaxed mb-4">
+            Group members presented actual foods that had been prepared in
+            advance and invited community participants to smell, observe, and
+            guess the dishes and their key ingredients. This interactive tasting
+            activity introduced high-protein plant-based recipes in an
+            enjoyable, hands-on format.
+          </p>
+
+          {/* Video */}
+          <div className="max-w-2xl mx-auto mb-8">
+            <div className="bg-black rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div className="relative bg-gray-900 aspect-video w-full">
+                <video
+                  controls
+                  preload="metadata"
+                  className="w-full h-full object-cover"
+                  title="Recipe Guessing Session"
+                  aria-label="Recipe guessing session video"
+                >
+                  <source
+                    src="/assets/videos/programme/recipi guession session .mp4"
+                    type="video/mp4"
+                  />
+                  <p className="absolute inset-0 flex items-center justify-center text-white text-sm bg-gray-900">
+                    Your browser does not support the video tag.
+                  </p>
+                </video>
               </div>
-
-              {/* Caption */}
-              <div className="p-4 bg-gradient-to-t from-green-50 to-white">
-                <p className="text-sm font-medium text-gray-800">
-                  Recipe Sheets for Distribution
+              <div className="p-3 bg-gradient-to-t from-green-50 to-white border-t border-green-100">
+                <p className="text-xs font-medium text-gray-800">
+                  Recipe Guessing Session
                 </p>
-                <p className="text-xs text-green-600 mt-2">
-                  High-Protein Plant-Based Recipes • Take-home Resources
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Seeds for Distribution Photo */}
-      <div className="mt-8 mb-8">
-        <h3 className="text-lg font-medium text-gray-800 mb-4">
-          Seeds for distribution — Evidence
-        </h3>
-        <p className="text-sm text-gray-600 mb-6">
-          Protein-rich plant seeds packaged for distribution to community
-          participants as a practical, sustainable take-home action
-        </p>
-        <div className="max-w-md mx-auto">
-          <div className="group">
-            <div className="relative bg-white border border-gray-200 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              {/* Image */}
-              <div className="aspect-square bg-gray-100 overflow-hidden relative">
-                <img
-                  src="/assets/photos/intervention/02-seeds-for-distribution.jfif"
-                  alt="Seeds for Distribution"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  onError={(e) => {
-                    e.target.src =
-                      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect fill='%23e5e7eb' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%239ca3af'%3EImage not loaded%3C/text%3E%3C/svg%3E";
-                  }}
-                />
-              </div>
-
-              {/* Caption */}
-              <div className="p-4 bg-gradient-to-t from-amber-50 to-white">
-                <p className="text-sm font-medium text-gray-800">
-                  Seeds for Home Growing
-                </p>
-                <p className="text-xs text-amber-600 mt-2">
-                  Sustainable Take-home Action • Community Empowerment
+                <p className="text-xs text-green-600 mt-1">
+                  Interactive Tasting • High-Protein Recipes
                 </p>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Drama Script Document */}
-      <div className="mt-8 mb-8">
-        <h3 className="text-lg font-medium text-gray-800 mb-4">
-          Drama script — Evidence
-        </h3>
-        <p className="text-sm text-gray-600 mb-6">
-          A drama script portraying relatable village-life scenarios showing the
-          consequences of insufficient protein intake and sedentary lifestyle
-        </p>
-        <div className="max-w-md mx-auto">
-          <a
-            href="/assets/documents/සවිය දෙන පෝෂණය.docx"
-            download
-            className="block relative bg-white border-2 border-teal-300 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow group cursor-pointer"
-          >
-            {/* Icon Area */}
-            <div className="aspect-square bg-gradient-to-br from-teal-50 to-teal-100 overflow-hidden relative flex items-center justify-center">
-              <div className="text-center">
-                <div className="text-5xl mb-2">📄</div>
-                <p className="text-xs font-medium text-teal-700">
-                  Word Document
+        {/* Step 3: Physical Activity */}
+        <div className="mb-12">
+          <h4 className="font-medium text-gray-800 mb-2 flex items-center gap-2">
+            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-600 text-white text-sm">
+              3
+            </span>
+            Physical activity session
+          </h4>
+          <p className="text-gray-700 text-sm leading-relaxed mb-4">
+            A structured physical activity session was conducted, specially
+            designed for adults of various fitness levels. Simple, low-impact
+            exercises were demonstrated and participants were invited to join
+            in. The session showed that physical activity can be done
+            comfortably in everyday village settings.
+          </p>
+
+          {/* Video */}
+          <div className="max-w-2xl mx-auto mb-8">
+            <div className="bg-black rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div className="relative bg-gray-900 aspect-video w-full">
+                <video
+                  controls
+                  preload="metadata"
+                  className="w-full h-full object-cover"
+                  title="Physical Activity Session"
+                  aria-label="Physical activity session video"
+                >
+                  <source
+                    src="/assets/videos/programme/physical_activity_session.mp4"
+                    type="video/mp4"
+                  />
+                  <p className="absolute inset-0 flex items-center justify-center text-white text-sm bg-gray-900">
+                    Your browser does not support the video tag.
+                  </p>
+                </video>
+              </div>
+              <div className="p-3 bg-gradient-to-t from-green-50 to-white border-t border-green-100">
+                <p className="text-xs font-medium text-gray-800">
+                  Physical Activity Session
+                </p>
+                <p className="text-xs text-green-600 mt-1">
+                  Adult-Friendly Exercises • Community Session
                 </p>
               </div>
             </div>
+          </div>
+        </div>
 
-            {/* Caption */}
-            <div className="p-4 bg-gradient-to-t from-teal-50 to-white border-t border-teal-100">
-              <p className="text-sm font-medium text-gray-800 group-hover:text-teal-700 transition-colors">
-                සවිය දෙන පෝෂණය
-              </p>
-              <p className="text-xs text-teal-600 mt-2">
-                Drama Script • Click to Download
-              </p>
-              <p className="text-xs text-gray-500 mt-3 italic">
-                ↓ Download DOCX file
-              </p>
+        {/* Step 4: Clay Model Game */}
+        <div className="mb-12">
+          <h4 className="font-medium text-gray-800 mb-2 flex items-center gap-2">
+            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-600 text-white text-sm">
+              4
+            </span>
+            Clay food model identification game
+          </h4>
+          <p className="text-gray-700 text-sm leading-relaxed mb-4">
+            The handmade clay food models were used in an interactive
+            identification game. Community members identified which models
+            represented protein-rich foods and categorised them. Community
+            members engaged enthusiastically with many correctly identifying
+            plant protein sources they had not recognised before.
+          </p>
+
+          {/* Video */}
+          <div className="max-w-2xl mx-auto mb-8">
+            <div className="bg-black rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div className="relative bg-gray-900 aspect-video w-full">
+                <video
+                  controls
+                  preload="metadata"
+                  className="w-full h-full object-cover"
+                  title="Clay Model Game"
+                  aria-label="Clay food model identification game video"
+                >
+                  <source
+                    src="/assets/videos/programme/clay food model identification session.mp4"
+                    type="video/mp4"
+                  />
+                  <p className="absolute inset-0 flex items-center justify-center text-white text-sm bg-gray-900">
+                    Your browser does not support the video tag.
+                  </p>
+                </video>
+              </div>
+              <div className="p-3 bg-gradient-to-t from-green-50 to-white border-t border-green-100">
+                <p className="text-xs font-medium text-gray-800">
+                  Clay Food Model Game
+                </p>
+                <p className="text-xs text-green-600 mt-1">
+                  Interactive Activity • Protein Knowledge
+                </p>
+              </div>
             </div>
-          </a>
+          </div>
+        </div>
+
+        {/* Step 5: Distribution */}
+        <div className="mb-12">
+          <h4 className="font-medium text-gray-800 mb-2 flex items-center gap-2">
+            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-600 text-white text-sm">
+              5
+            </span>
+            Distribution of seeds and recipe sheets
+          </h4>
+          <p className="text-gray-700 text-sm leading-relaxed mb-4">
+            Seeds of protein-rich plants were distributed to each participant to
+            encourage home growing as a practical, sustainable long-term
+            strategy. Recipe sheets featuring affordable, high-protein dishes
+            using locally available ingredients were also distributed as
+            take-home resources.
+          </p>
+        </div>
+
+        {/* Step 6: Feedback */}
+        <div className="mb-12">
+          <h4 className="font-medium text-gray-800 mb-2 flex items-center gap-2">
+            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-600 text-white text-sm">
+              6
+            </span>
+            Feedback session
+          </h4>
+          <p className="text-gray-700 text-sm leading-relaxed mb-4">
+            A structured feedback session was conducted using a dot-sticker
+            board, where participants placed stickers to indicate their
+            responses and level of understanding. Verbal feedback was also
+            invited. Participants gave positive feedback about the programme's
+            content, drama, and interactive activities.
+          </p>
+
+          {/* Video */}
+          <div className="max-w-2xl mx-auto mb-8">
+            <div className="bg-black rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div className="relative bg-gray-900 aspect-video w-full">
+                <video
+                  controls
+                  preload="metadata"
+                  className="w-full h-full object-cover"
+                  title="Feedback Session"
+                  aria-label="Feedback session video"
+                >
+                  <source
+                    src="/assets/videos/programme/feeedback.mp4"
+                    type="video/mp4"
+                  />
+                  <p className="absolute inset-0 flex items-center justify-center text-white text-sm bg-gray-900">
+                    Your browser does not support the video tag.
+                  </p>
+                </video>
+              </div>
+              <div className="p-3 bg-gradient-to-t from-green-50 to-white border-t border-green-100">
+                <p className="text-xs font-medium text-gray-800">
+                  Feedback Session
+                </p>
+                <p className="text-xs text-green-600 mt-1">
+                  Structured Evaluation • Participant Feedback
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Edit Note */}
-      {/* <div className="mt-6 bg-amber-100 border-l-4 border-amber-600 rounded-r-lg p-3 text-xs text-amber-700 italic">
-        Add photos of: drama performance, recipe guessing session, physical
-        activity session, clay model game, feedback session, and programme
-        video. Include exact number of community participants.
-      </div> */}
+      <div className="mt-6 bg-amber-100 border-l-4 border-amber-600 rounded-r-lg p-3 text-xs text-amber-700 italic">
+        Implementation Phase Complete — Shows what actually happened during the
+        programme execution (5th week).
+      </div>
     </>
   );
 }
