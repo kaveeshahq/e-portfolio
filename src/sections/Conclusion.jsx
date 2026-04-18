@@ -8,7 +8,6 @@ export default function Conclusion() {
     "IPAQ scoring protocol — Craig et al. (2003). Medicine & Science in Sports & Exercise",
     "FAO/WHO protein requirements for adults report",
     "Sri Lanka PDHS data on NCD prevalence in rural communities",
-    "Add any journal articles on plant protein intake and community nutrition interventions",
   ];
 
   return (
@@ -69,9 +68,9 @@ export default function Conclusion() {
       >
         <Card variant="teal">
           <h3 className="text-lg font-medium text-gray-800 mb-4">References</h3>
-          <p className="text-xs text-gray-600 mb-4 italic">
+          {/* <p className="text-xs text-gray-600 mb-4 italic">
             Add your references below in APA format. Suggested sources:
-          </p>
+          </p> */}
           <ul className="space-y-2 mb-4">
             {references.map((ref, idx) => (
               <motion.li

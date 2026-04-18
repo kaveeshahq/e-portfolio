@@ -297,10 +297,10 @@ export default function Implementation() {
       </div>
 
       {/* Edit Note */}
-      <div className="mt-6 bg-amber-100 border-l-4 border-amber-600 rounded-r-lg p-3 text-xs text-amber-700 italic">
+      {/* <div className="mt-6 bg-amber-100 border-l-4 border-amber-600 rounded-r-lg p-3 text-xs text-amber-700 italic">
         Implementation Phase Complete — Shows what actually happened during the
         programme execution (5th week).
-      </div>
+      </div> */}
     </>
   );
 }

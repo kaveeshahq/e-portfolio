@@ -3,6 +3,12 @@ import { SectionTitle, Card, Badge } from "../components/SharedComponents";
 export default function Intervention() {
   const materials = [
     {
+      title: "Clay food models",
+      desc: "Handmade clay models of multiple protein sources — fish, chicken, eggs, legumes, soy — painted and labelled in Sinhala. Used in the identification game.",
+      variant: "green",
+      image: "/assets/photos/intervention/03-community-notice-posters.jfif",
+    },
+    {
       title: "Recipe sheets",
       desc: "Take-home recipe cards featuring high-protein dishes prepared from affordable, locally available plant protein sources.",
       variant: "green",
@@ -234,10 +240,10 @@ export default function Intervention() {
       </div>
 
       {/* Edit Note */}
-      <div className="mt-6 bg-amber-100 border-l-4 border-amber-600 rounded-r-lg p-3 text-xs text-amber-700 italic">
+      {/* <div className="mt-6 bg-amber-100 border-l-4 border-amber-600 rounded-r-lg p-3 text-xs text-amber-700 italic">
         Planning Phase Complete — Shows what was prepared and planned for the
         intervention (3rd week).
-      </div>
+      </div> */}
     </>
   );
 }
