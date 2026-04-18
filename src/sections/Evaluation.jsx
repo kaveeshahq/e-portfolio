@@ -16,8 +16,6 @@ export default function Evaluation() {
     "A single one-time session is insufficient to produce sustained long-term behavioural change",
     "No formal follow-up assessment was conducted to measure whether participants actually changed their protein consumption",
     "Community sample size was limited, reducing generalisability of the identified problems",
-    "IPAQ self-reported data is subject to recall bias and social desirability bias",
-    "Budget constraints (Rs. 4,000) limited the scale of seed distribution and quality of printed recipe materials",
   ];
 
   const suggestions = [
@@ -117,9 +115,7 @@ export default function Evaluation() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         className="mt-6 bg-amber-100 border-l-4 border-amber-600 rounded-r-lg p-3 text-xs text-amber-700 italic"
-      >
-      
-      </motion.div>
+      ></motion.div>
     </>
   );
 }

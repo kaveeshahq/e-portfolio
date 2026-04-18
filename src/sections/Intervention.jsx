@@ -3,12 +3,6 @@ import { SectionTitle, Card, Badge } from "../components/SharedComponents";
 export default function Intervention() {
   const materials = [
     {
-      title: "Clay food models",
-      desc: "Handmade clay models of multiple protein sources — fish, chicken, eggs, legumes, soy — painted and labelled in Sinhala. Used in the identification game.",
-      variant: "green",
-      image: "/assets/photos/intervention/01-clay-food-models-preparation.jfif",
-    },
-    {
       title: "Recipe sheets",
       desc: "Take-home recipe cards featuring high-protein dishes prepared from affordable, locally available plant protein sources.",
       variant: "green",
@@ -19,12 +13,6 @@ export default function Intervention() {
       desc: "Seeds of protein-rich plants selected for home growing. Distributed to every participant as a practical, sustainable follow-up action.",
       variant: "amber",
       image: "/assets/photos/intervention/02-seeds-for-distribution.jfif",
-    },
-    {
-      title: "Drama script",
-      desc: "A drama script portraying relatable village-life scenarios showing the consequences of insufficient protein intake and sedentary lifestyle.",
-      variant: "teal",
-      image: "/assets/photos/intervention/05-drama-script-rehearsal.jfif",
     },
     {
       title: "Feedback evaluation form",
