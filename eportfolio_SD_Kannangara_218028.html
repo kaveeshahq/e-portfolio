@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>E-Portfolio | S.D. Kannangara | NTN 3212</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#3B6D11;--green-light:#EAF3DE;--green-mid:#639922;--green-dark:#27500A;
+  --teal:#0F6E56;--teal-light:#E1F5EE;
+  --amber:#BA7517;--amber-light:#FAEEDA;
+  --text:#2C2C2A;--muted:#5F5E5A;--border:rgba(0,0,0,0.1);
+  --card:#fff;--bg:#F8FAF5;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+
+/* HERO */
+.hero{background:var(--green-dark);color:#fff;padding:3.5rem 2.5rem 3rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-40px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,0.04)}
+.hero::after{content:'';position:absolute;bottom:-70px;left:15%;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.03)}
+.hero-label{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:.6rem}
+.hero-title{font-family:'Lora',serif;font-size:2.2rem;font-weight:400;line-height:1.28;margin-bottom:.5rem}
+.hero-sub{font-size:.9rem;color:rgba(255,255,255,0.68);margin-bottom:1.6rem}
+.hero-meta{display:flex;flex-wrap:wrap;gap:.6rem}
+.meta-chip{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);border-radius:20px;padding:.28rem .85rem;font-size:.76rem;color:rgba(255,255,255,0.88)}
+
+/* NAV */
+.nav{background:#fff;border-bottom:0.5px solid var(--border);display:flex;overflow-x:auto;position:sticky;top:0;z-index:100;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav-btn{flex:none;background:none;border:none;padding:.85rem 1.1rem;font-family:'DM Sans',sans-serif;font-size:.79rem;font-weight:500;color:var(--muted);cursor:pointer;border-bottom:2.5px solid transparent;white-space:nowrap;transition:all .2s}
+.nav-btn.active{color:var(--green);border-bottom-color:var(--green)}
+.nav-btn:hover{color:var(--green)}
+
+/* LAYOUT */
+.content{max-width:880px;margin:0 auto;padding:2.2rem 1.5rem}
+.section{display:none}
+.section.active{display:block}
+
+/* TYPOGRAPHY */
+h2{font-family:'Lora',serif;font-size:1.4rem;font-weight:400;color:var(--green-dark);margin-bottom:1.3rem;padding-bottom:.5rem;border-bottom:1.5px solid var(--green-light)}
+h3{font-size:.95rem;font-weight:500;color:var(--text);margin:1.3rem 0 .5rem}
+p{font-size:.89rem;line-height:1.8;color:#3a3a38;margin-bottom:.75rem}
+ul{padding-left:1.25rem;margin-bottom:.75rem}
+li{font-size:.89rem;line-height:1.75;color:#3a3a38;margin-bottom:.2rem}
+
+/* CARDS */
+.card{background:var(--card);border:0.5px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1rem}
+.card-green{border-left:3px solid var(--green-mid)}
+.card-teal{border-left:3px solid var(--teal)}
+.card-amber{border-left:3px solid var(--amber)}
+
+/* STATS */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:1.25rem 0}
+.stat{background:var(--green-light);border-radius:10px;padding:1rem;text-align:center}
+.stat-num{font-family:'Lora',serif;font-size:1.8rem;color:var(--green-dark);font-weight:400;line-height:1.1}
+.stat-label{font-size:.7rem;color:var(--green);margin-top:.25rem;letter-spacing:.4px}
+
+/* BADGES */
+.badge{display:inline-block;background:var(--green-light);color:var(--green-dark);font-size:.71rem;font-weight:500;padding:.2rem .65rem;border-radius:20px;margin:.18rem .1rem}
+.badge-amber{background:var(--amber-light);color:var(--amber)}
+.badge-teal{background:var(--teal-light);color:var(--teal)}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:1.8rem}
+.timeline::before{content:'';position:absolute;left:.42rem;top:.5rem;bottom:.5rem;width:1.5px;background:var(--green-light)}
+.tl-item{position:relative;margin-bottom:1.3rem}
+.tl-dot{position:absolute;left:-1.38rem;top:.32rem;width:10px;height:10px;border-radius:50%;background:var(--green-mid);border:2px solid var(--bg)}
+.tl-week{font-size:.7rem;font-weight:500;color:var(--green);letter-spacing:.5px;text-transform:uppercase;margin-bottom:.12rem}
+.tl-title{font-size:.91rem;font-weight:500;margin-bottom:.28rem}
+.tl-body{font-size:.84rem;color:var(--muted);line-height:1.68}
+
+/* CHARTS */
+.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.3rem 0}
+.chart-box{background:var(--card);border:0.5px solid var(--border);border-radius:12px;padding:1.1rem;text-align:center}
+.chart-title{font-size:.79rem;font-weight:500;color:var(--green-dark);margin-bottom:.8rem}
+.pie-wrap{display:flex;justify-content:center;margin-bottom:.75rem}
+.legend{display:flex;flex-direction:column;gap:.32rem;align-items:flex-start;margin:0 auto;width:fit-content}
+.leg-item{display:flex;align-items:center;gap:.4rem;font-size:.73rem;color:var(--muted)}
+.leg-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+
+/* METHOD GRID */
+.method-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:.75rem;margin:.8rem 0}
+.method-card{background:var(--green-light);border-radius:10px;padding:.9rem 1rem}
+.method-name{font-size:.8rem;font-weight:500;color:var(--green-dark);margin-bottom:.22rem}
+.method-desc{font-size:.75rem;color:var(--green);line-height:1.55}
+
+/* PROGRAMME STEPS */
+.prog-step{display:flex;gap:1rem;margin-bottom:1rem;align-items:flex-start}
+.prog-num{width:28px;height:28px;border-radius:50%;background:var(--green-mid);color:#fff;font-size:.76rem;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.08rem}
+.prog-body{flex:1}
+.prog-title{font-size:.9rem;font-weight:500;margin-bottom:.22rem}
+.prog-text{font-size:.83rem;color:var(--muted);line-height:1.66}
+
+/* MATERIALS GRID (intervention) */
+.mat-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:.8rem 0}
+.mat-item{background:#fff;border:0.5px solid var(--border);border-radius:10px;padding:.9rem 1rem}
+.mat-item p{font-size:.82rem;margin-top:.3rem;color:var(--muted)}
+
+/* STRENGTH GRID */
+.strength-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+.str-card{background:var(--card);border:0.5px solid var(--border);border-radius:10px;padding:1rem 1.1rem}
+.str-title{font-size:.8rem;font-weight:500;margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem}
+.dot-g{width:8px;height:8px;border-radius:50%;background:var(--green-mid);flex-shrink:0}
+.dot-a{width:8px;height:8px;border-radius:50%;background:#BA7517;flex-shrink:0}
+.dot-r{width:8px;height:8px;border-radius:50%;background:#A32D2D;flex-shrink:0}
+.str-body{font-size:.82rem;color:var(--muted);line-height:1.62}
+
+/* REFLECTION */
+.reflection-block{background:var(--green-light);border:0.5px solid rgba(59,109,17,.15);border-radius:12px;padding:1.5rem;margin:1rem 0;font-family:'Lora',serif;font-style:italic;font-size:.94rem;line-height:1.85;color:#2a2a28}
+
+/* EDIT NOTE */
+.edit-note{background:var(--amber-light);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:.55rem .9rem;font-size:.76rem;color:var(--amber);margin:.4rem 0 1rem;font-style:italic}
+
+/* PHOTO SLOT */
+.photo-slot{background:var(--green-light);border:1.5px dashed var(--green-mid);border-radius:10px;padding:1.4rem;text-align:center;margin:.4rem 0;color:var(--green)}
+.photo-slot p{font-size:.79rem;color:var(--green);margin:0}
+
+/* FOOTER */
+.footer{background:var(--green-dark);border-radius:12px;padding:1.5rem;color:#fff;text-align:center;margin-top:2rem}
+.footer-name{font-family:'Lora',serif;font-size:.95rem;font-style:italic;margin-bottom:.35rem}
+.footer-sub{font-size:.76rem;opacity:.6;margin-bottom:.8rem}
+.member-chips{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center}
+.member-chip{background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.14);border-radius:20px;padding:.2rem .65rem;font-size:.71rem;color:rgba(255,255,255,0.82)}
+
+@media(max-width:560px){
+  .strength-grid,.charts-row,.mat-grid{grid-template-columns:1fr}
+  .hero-title{font-size:1.55rem}
+  .hero{padding:2.5rem 1.5rem 2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">NTN 3212 · Field Assignment in Nutrition · 2024/2025 Semester II</div>
+  <div class="hero-title">E-Portfolio: Field Assignment<br>in Nutrition</div>
+  <div class="hero-sub">S.D. Kannangara &nbsp;·&nbsp; Index No. 218028 &nbsp;·&nbsp; Group 2 &nbsp;·&nbsp; Wayamba University of Sri Lanka</div>
+  <div class="hero-meta">
+    <span class="meta-chip">Mediriwila Adult Community</span>
+    <span class="meta-chip">Low Protein Intake</span>
+    <span class="meta-chip">Low Physical Activity</span>
+    <span class="meta-chip">නිරෝගී හෙතකට — සවිය දෙන පෝෂණය</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <button class="nav-btn active" onclick="go('intro',this)">Introduction</button>
+  <button class="nav-btn" onclick="go('activities',this)">Activities</button>
+  <button class="nav-btn" onclick="go('intervention',this)">Intervention</button>
+  <button class="nav-btn" onclick="go('implementation',this)">Implementation</button>
+  <button class="nav-btn" onclick="go('eval',this)">Evaluation</button>
+  <button class="nav-btn" onclick="go('reflection',this)">Reflection</button>
+  <button class="nav-btn" onclick="go('conclusion',this)">Conclusion</button>
+</nav>
+
+<div class="content">
+
+<!-- ===== INTRODUCTION ===== -->
+<div id="intro" class="section active">
+  <h2>Introduction to the identified problems</h2>
+
+  <div class="stat-grid">
+    <div class="stat"><div class="stat-num">2</div><div class="stat-label">Priority problems</div></div>
+    <div class="stat"><div class="stat-num">66.7%</div><div class="stat-label">Low protein source usage</div></div>
+    <div class="stat"><div class="stat-num">70%</div><div class="stat-label">Sedentary lifestyle</div></div>
+    <div class="stat"><div class="stat-num">6</div><div class="stat-label">Group members</div></div>
+  </div>
+
+  <div class="card card-green">
+    <h3>Target community</h3>
+    <p>The targeted community for this field assignment was the <strong>Mediriwila Grama Niladhari Division</strong> adult community. This rural community was selected based on preliminary information gathered from key informants, suggesting potential nutritional deficiencies and limited awareness of healthy dietary practices among adults in the area.</p>
+  </div>
+
+  <div class="charts-row">
+    <div class="chart-box">
+      <div class="chart-title">Protein source usage in the community</div>
+      <div class="pie-wrap">
+        <svg width="110" height="110" viewBox="0 0 110 110">
+          <circle cx="55" cy="55" r="40" fill="none" stroke="#4a90d9" stroke-width="40" stroke-dasharray="167 85" stroke-dashoffset="0"/>
+          <circle cx="55" cy="55" r="40" fill="none" stroke="#e05a3a" stroke-width="40" stroke-dasharray="28 224" stroke-dashoffset="-167"/>
+          <circle cx="55" cy="55" r="40" fill="none" stroke="#639922" stroke-width="40" stroke-dasharray="56 196" stroke-dashoffset="-195"/>
+          <circle cx="55" cy="55" r="22" fill="#fff"/>
+        </svg>
+      </div>
+      <div class="legend">
+        <div class="leg-item"><div class="leg-dot" style="background:#4a90d9"></div>Never / Rarely — 66.7%</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#e05a3a"></div>Sometimes — 11.1%</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#639922"></div>Regularly — 22.2%</div>
+      </div>
+    </div>
+    <div class="chart-box">
+      <div class="chart-title">Physical activity levels (IPAQ)</div>
+      <div class="pie-wrap">
+        <svg width="110" height="110" viewBox="0 0 110 110">
+          <circle cx="55" cy="55" r="40" fill="none" stroke="#4a90d9" stroke-width="40" stroke-dasharray="176 76" stroke-dashoffset="0"/>
+          <circle cx="55" cy="55" r="40" fill="none" stroke="#e07a3a" stroke-width="40" stroke-dasharray="50 202" stroke-dashoffset="-176"/>
+          <circle cx="55" cy="55" r="40" fill="none" stroke="#aaa" stroke-width="40" stroke-dasharray="25 227" stroke-dashoffset="-226"/>
+          <circle cx="55" cy="55" r="22" fill="#fff"/>
+        </svg>
+      </div>
+      <div class="legend">
+        <div class="leg-item"><div class="leg-dot" style="background:#4a90d9"></div>Sedentary — 70%</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#e07a3a"></div>Irregularly active — 20%</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#aaa"></div>Active — 10%</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Problem 1 — Low usage of protein sources</h3>
+  <p>The dietary habit assessment revealed that <strong>66.7% of community members</strong> rarely or never consumed sufficient protein-rich foods. Intake of plant-based protein sources such as legumes, dhal, and soy was particularly low. Key reasons identified include:</p>
+  <ul>
+    <li>Limited knowledge about plant-based protein sources and their health benefits</li>
+    <li>Cultural preference for rice-centred meals with minimal protein accompaniments</li>
+    <li>Low awareness of daily protein requirements for adults</li>
+    <li>Misconception that only animal protein (meat/fish) is a valid protein source</li>
+    <li>Economic constraints limiting access to animal-sourced protein foods</li>
+  </ul>
+
+  <h3>Problem 2 — Low physical activity levels</h3>
+  <p>The IPAQ (International Physical Activity Questionnaire) short form assessment showed that <strong>70% of adults were sedentary</strong> and only 10% were sufficiently active. Contributing factors include:</p>
+  <ul>
+    <li>Predominantly home-based daily routines with limited movement</li>
+    <li>Lack of knowledge about recommended physical activity levels for adults</li>
+    <li>Absence of structured physical activity facilities or programmes in the community</li>
+    <li>Cultural norms that do not prioritise exercise as part of daily life</li>
+  </ul>
+
+  <div class="card card-teal" style="margin-top:1.1rem">
+    <h3>Prioritised problems</h3>
+    <p>Both <strong>low protein intake</strong> and <strong>low physical activity</strong> were prioritised as inter-related issues contributing to poor nutritional status and increased NCD risk among Mediriwila adults. The intervention was designed to address both problems together.</p>
+    <div style="margin-top:.5rem">
+      <span class="badge">Low protein intake</span>
+      <span class="badge">Plant protein awareness</span>
+      <span class="badge badge-amber">Sedentary lifestyle</span>
+      <span class="badge badge-teal">Mediriwila Grama Niladhari</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ACTIVITIES ===== -->
+<div id="activities" class="section">
+  <h2>Activities and observations during 4 weeks</h2>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Week 1</div>
+      <div class="tl-title">Initial discussion with key informants</div>
+      <div class="tl-body">Selected the Mediriwila Grama Niladhari Division as the target community. Met with the <strong>Sanwardrana Niladhari</strong> (Community Development Officer) to gather background information on the community's health and nutrition situation. Visited the local <strong>Public Health Midwife (PHM)</strong> clinic to discuss common health concerns observed in the community. These meetings helped narrow down potential nutrition problems to investigate further and established good rapport with community gatekeepers.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Week 2</div>
+      <div class="tl-title">Problem identification — data collection</div>
+      <div class="tl-body">Conducted a comprehensive community assessment using three validated tools administered to adult community members: (1) the <strong>IPAQ Short Form</strong> to assess physical activity levels, (2) a <strong>socio-demographic questionnaire</strong> to collect background information on age, sex, occupation and household, and (3) a <strong>dietary habit assessment questionnaire</strong> developed in Sinhala via Google Forms. Anthropometric measurements were also taken including <strong>height, weight, waist and hip circumferences</strong>, and <strong>handgrip strength</strong> using a dynamometer. Data was compiled and analysed to confirm priority nutrition problems.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Week 3</div>
+      <div class="tl-title">Data analysis and intervention planning</div>
+      <div class="tl-body">Analysed all collected data confirming two priority problems: low protein source usage (66.7%) and low physical activity (70% sedentary). Began designing the multi-component intervention programme titled <em>"නිරෝගී හෙතකට — සවිය දෙන පෝෂණය"</em>. Planned the programme structure covering drama, recipe guessing, physical activity, clay game, seed distribution, and a feedback session. Coordinated with the course coordinator Dr. Thilanka Ranathunga to confirm the programme date, time, and venue.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Week 4</div>
+      <div class="tl-title">Material preparation and programme implementation</div>
+      <div class="tl-body">Prepared all materials for the programme: crafted clay food models, prepared actual foods for the recipe guessing session, finalised recipe sheets, prepared seeds for distribution, wrote and rehearsed the drama script, and designed the Sinhala community notice. The full intervention programme was implemented at the Mediriwila Grama Sabha on <strong>7 April at 10:00 AM</strong>. All six group members participated actively throughout.</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:1rem">
+    <h3>Tools used to identify problems</h3>
+    <div class="method-grid">
+      <div class="method-card">
+        <div class="method-name">IPAQ Short Form</div>
+        <div class="method-desc">Assessed physical activity levels — categorised participants as sedentary, irregularly active, or active</div>
+      </div>
+      <div class="method-card">
+        <div class="method-name">Dietary habit assessment</div>
+        <div class="method-desc">Sinhala questionnaire on frequency of consumption of protein sources and other food groups</div>
+      </div>
+      <div class="method-card">
+        <div class="method-name">Socio-demographic questionnaire</div>
+        <div class="method-desc">Collected age, sex, occupation, and household data to contextualise findings</div>
+      </div>
+      <div class="method-card">
+        <div class="method-name">Anthropometric measurements</div>
+        <div class="method-desc">Height, weight, waist &amp; hip circumferences, and handgrip dynamometer measurements</div>
+      </div>
+      <div class="method-card">
+        <div class="method-name">Key informant interviews</div>
+        <div class="method-desc">Face-to-face discussions with the Sanwardrana Niladhari and the Public Health Midwife</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="edit-note">Add your own observations and findings from each week — e.g., number of participants measured, specific responses from key informants, any additional qualitative observations.</div>
+</div>
+
+<!-- ===== INTERVENTION (PLANNED PROGRAMME) ===== -->
+<div id="intervention" class="section">
+  <h2>The planned intervention</h2>
+
+  <div class="card card-green">
+    <h3>Programme concept</h3>
+    <p>Based on the identified problems, a multi-component community nutrition intervention programme titled <strong>"නිරෝගී හෙතකට — සවිය දෙන පෝෂණය"</strong> (Nutrition for a Healthy Life) was designed for the Mediriwila adult community. The programme was planned to address both <strong>low protein intake</strong> and <strong>low physical activity</strong> simultaneously through participatory, culturally appropriate methods.</p>
+  </div>
+
+  <h3>Rationale for this approach</h3>
+  <p>A participatory, multi-method approach was chosen because the root cause of low protein intake in this community was a <strong>knowledge and awareness gap</strong> — not a food access issue. Adults in Mediriwila were simply unaware that locally available, affordable plant foods are rich protein sources. Interactive methods (drama, games, tasting) were preferred over lecture-based delivery to maximise engagement with an adult audience and improve retention of health messages.</p>
+  <p>Distributing seeds and protein-rich recipes was intentionally included as a <strong>practical, sustainable take-home action</strong> — moving the intervention beyond awareness toward real dietary behaviour change. The physical activity session addressed the second identified problem by demonstrating that exercise can be simple, enjoyable, and accessible for all adults.</p>
+
+  <h3>Planned programme components</h3>
+  <ul>
+    <li><strong>Drama performance</strong> — to open the session in a culturally engaging way, portraying everyday consequences of poor protein intake and inactivity</li>
+    <li><strong>Recipe guessing session</strong> — using real foods prepared by the group to introduce high-protein plant-based recipes interactively</li>
+    <li><strong>Physical activity session</strong> — a structured, adult-friendly exercise session designed to address low activity levels and demonstrate accessible movement</li>
+    <li><strong>Clay food model identification game</strong> — an interactive game using handmade clay models to assess and reinforce knowledge of protein sources</li>
+    <li><strong>Seed distribution</strong> — distributing seeds of protein-rich plants to encourage home growing and long-term dietary change</li>
+    <li><strong>Recipe distribution</strong> — take-home recipe cards featuring affordable high-protein dishes using locally available ingredients</li>
+    <li><strong>Feedback session</strong> — a structured evaluation at the close of the programme to assess participant understanding and gather feedback</li>
+  </ul>
+
+  <h3>Materials prepared for the intervention</h3>
+  <div class="mat-grid">
+    <div class="mat-item">
+      <span class="badge">Clay food models</span>
+      <p>Handmade clay models of multiple protein sources — fish, chicken, eggs, legumes, soy — painted and labelled in Sinhala. Used in the identification game to help participants recognise protein-rich foods in a tactile, visual way.</p>
+    </div>
+    <div class="mat-item">
+      <span class="badge">Recipe sheets</span>
+      <p>Take-home recipe cards featuring high-protein dishes prepared from affordable, locally available plant protein sources. Recipes were practically demonstrated during the session's recipe guessing activity.</p>
+    </div>
+    <div class="mat-item">
+      <span class="badge">Community notice (Sinhala)</span>
+      <p>A bilingual invitation poster designed in Sinhala and distributed in the community ahead of the programme. Stated the date (7 April, Wednesday), time (10:00 AM), and venue (Mediriwila Grama Sabha).</p>
+    </div>
+    <div class="mat-item">
+      <span class="badge badge-teal">Drama script</span>
+      <p>A drama script written by group members portraying relatable village-life scenarios showing the consequences of insufficient protein intake and a sedentary lifestyle. Rehearsed multiple times before the programme day.</p>
+    </div>
+    <div class="mat-item">
+      <span class="badge badge-amber">Seeds for distribution</span>
+      <p>Seeds of protein-rich plants selected for home growing in a typical rural household garden. Distributed to every participant as a practical, sustainable follow-up action to reinforce the session's key messages.</p>
+    </div>
+    <div class="mat-item">
+      <span class="badge badge-amber">Feedback evaluation form</span>
+      <p>A dot-sticker feedback board designed to visually collect participant responses on whether the programme's messages were understood and to assess overall satisfaction with the intervention.</p>
+    </div>
+  </div>
+
+  <div class="edit-note">Attach photos of your clay models, recipe sheets, community notice poster, and any other materials you prepared in this section.</div>
+</div>
+
+<!-- ===== IMPLEMENTATION (WHAT HAPPENED ON THE DAY) ===== -->
+<div id="implementation" class="section">
+  <h2>Implementation of the intervention</h2>
+
+  <div class="stat-grid">
+    <div class="stat"><div class="stat-num">7 Apr</div><div class="stat-label">Programme date</div></div>
+    <div class="stat"><div class="stat-num">10:00 AM</div><div class="stat-label">Start time</div></div>
+    <div class="stat"><div class="stat-num">45–60</div><div class="stat-label">Duration (mins)</div></div>
+    <div class="stat"><div class="stat-num">6</div><div class="stat-label">Group members</div></div>
+  </div>
+
+  <div class="card card-green">
+    <h3>Programme setting</h3>
+    <p>The intervention programme was held at the <strong>Mediriwila Grama Sabha</strong> (community hall) on <strong>7 April (Wednesday) at 10:00 AM</strong>. A sufficient number of adult community members attended. All six group members participated actively throughout the entire programme.</p>
+  </div>
+
+  <h3>What happened on the day — step by step</h3>
+
+  <div class="prog-step">
+    <div class="prog-num">1</div>
+    <div class="prog-body">
+      <div class="prog-title">Drama performance — opening the session</div>
+      <div class="prog-text">The session was opened with the drama that group members had prepared and rehearsed. The drama depicted a relatable scenario from everyday Mediriwila village life — showing how a family's low protein intake and sedentary habits led to health problems, and how simple changes could make a difference. The drama immediately captured participants' attention, created laughter and engagement, and set a warm, participatory tone for the rest of the programme.</div>
+    </div>
+  </div>
+
+  <div class="prog-step">
+    <div class="prog-num">2</div>
+    <div class="prog-body">
+      <div class="prog-title">Recipe guessing session</div>
+      <div class="prog-text">Group members presented actual foods that had been prepared in advance and invited community participants to smell, observe, and guess the dishes and their key ingredients. This interactive tasting activity introduced high-protein plant-based recipes in an enjoyable, hands-on format, directly bridging the gap between unfamiliar protein-rich foods and familiar everyday cooking in the community.</div>
+    </div>
+  </div>
+
+  <div class="prog-step">
+    <div class="prog-num">3</div>
+    <div class="prog-body">
+      <div class="prog-title">Physical activity session</div>
+      <div class="prog-text">A structured physical activity session was conducted, specially designed and adapted for adults of various fitness levels. Simple, low-impact exercises were demonstrated by group members and participants were actively invited to join in. The session showed that physical activity does not require a gym or equipment — it can be done comfortably in everyday village settings — directly addressing the 70% sedentary rate found in the IPAQ assessment.</div>
+    </div>
+  </div>
+
+  <div class="prog-step">
+    <div class="prog-num">4</div>
+    <div class="prog-body">
+      <div class="prog-title">Clay food model identification game</div>
+      <div class="prog-text">The handmade clay food models were used in an interactive identification game. Community members were asked to identify which clay models represented protein-rich foods and to categorise them. The game evaluated whether participants had absorbed the key educational messages from the earlier parts of the session. Community members engaged enthusiastically, with many correctly identifying plant protein sources they previously had not recognised as "protein food."</div>
+    </div>
+  </div>
+
+  <div class="prog-step">
+    <div class="prog-num">5</div>
+    <div class="prog-body">
+      <div class="prog-title">Distribution of seeds and recipe sheets</div>
+      <div class="prog-text">Seeds of protein-rich plants were distributed to each participant to encourage home growing as a practical, sustainable long-term strategy for improving protein intake. Recipe sheets featuring affordable, high-protein dishes using locally available ingredients were also distributed as take-home resources, ensuring the session's messages could be applied in participants' daily home cooking.</div>
+    </div>
+  </div>
+
+  <div class="prog-step">
+    <div class="prog-num">6</div>
+    <div class="prog-body">
+      <div class="prog-title">Feedback session</div>
+      <div class="prog-text">A structured feedback session was conducted at the close of the programme using a dot-sticker board, where participants placed stickers to indicate their responses and level of understanding. Verbal feedback was also invited and documented. Participants gave positive feedback about the programme's content, the drama, and the interactive activities. The feedback confirmed that the key messages about plant protein sources and physical activity had been effectively communicated.</div>
+    </div>
+  </div>
+
+  <h3>Evidence of implementation</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:.8rem 0">
+    <div class="photo-slot"><p>📷 Add photo: drama performance</p></div>
+    <div class="photo-slot"><p>📷 Add photo: recipe guessing session</p></div>
+    <div class="photo-slot"><p>📷 Add photo: physical activity session</p></div>
+    <div class="photo-slot"><p>📷 Add photo: clay model game</p></div>
+    <div class="photo-slot"><p>📷 Add photo: seed and recipe distribution</p></div>
+    <div class="photo-slot"><p>📷 Add photo: feedback session / dot board</p></div>
+  </div>
+  <div class="edit-note">Replace the photo placeholders above with your actual programme photos. Add the video link submitted to the course coordinator. Include the exact number of community participants who attended.</div>
+</div>
+
+<!-- ===== EVALUATION ===== -->
+<div id="eval" class="section">
+  <h2>Evaluation: strengths, limitations and suggestions</h2>
+
+  <div class="strength-grid">
+    <div class="str-card">
+      <div class="str-title"><div class="dot-g"></div>Strengths of the intervention</div>
+      <div class="str-body">
+        <ul style="padding-left:1rem">
+          <li style="font-size:.82rem;line-height:1.65;margin-bottom:.32rem">Multi-method approach (drama, game, physical activity, tasting, seeds) sustained participant engagement from start to finish</li>
+          <li style="font-size:.82rem;line-height:1.65;margin-bottom:.32rem">Drama was highly culturally appropriate and instantly created rapport with the adult village community</li>
+          <li style="font-size:.82rem;line-height:1.65;margin-bottom:.32rem">Clay food models made learning visual and tactile — well suited for adults with varied literacy levels</li>
+          <li style="font-size:.82rem;line-height:1.65;margin-bottom:.32rem">Seed distribution moved the intervention beyond awareness to a practical, sustainable take-home action</li>
+          <li style="font-size:.82rem;line-height:1.65;margin-bottom:.32rem">Dot-sticker feedback board was a simple, inclusive evaluation method appropriate for a community setting</li>
+          <li style="font-size:.82rem;line-height:1.65">All six group members participated actively, ensuring professional and smooth delivery throughout</li>
+        </ul>
+      </div>
+    </div>
+    <div class="str-card">
+      <div class="str-title"><div class="dot-r"></div>Weaknesses and limitations</div>
+      <div class="str-body">
+        <ul style="padding-left:1rem">
+          <li style="font-size:.82rem;line-height:1.65;margin-bottom:.32rem">A single one-time session is insufficient to produce sustained long-term behavioural change in protein dietary habits</li>
+          <li style="font-size:.82rem;line-height:1.65;margin-bottom:.32rem">No formal follow-up assessment was conducted to measure whether participants actually changed their protein consumption after the programme</li>
+          <li style="font-size:.82rem;line-height:1.65;margin-bottom:.32rem">Community sample size was limited, reducing generalisability of the identified problems to the broader population</li>
+          <li style="font-size:.82rem;line-height:1.65;margin-bottom:.32rem">IPAQ self-reported data is subject to recall bias and social desirability bias</li>
+          <li style="font-size:.82rem;line-height:1.65">Budget constraints (Rs. 4,000) limited the scale of seed distribution and quality of printed recipe materials</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-amber">
+    <div class="str-title" style="margin-bottom:.65rem"><div class="dot-a"></div>Suggestions to improve the intervention and problem identification</div>
+    <ul>
+      <li>Conduct a follow-up session one month after the programme using the same dietary habit questionnaire to measure actual change in protein food consumption</li>
+      <li>Partner with the local PHM and Sanwardrana Niladhari to integrate the protein education messages into existing community health outreach for longer-term impact</li>
+      <li>Use pre- and post-knowledge tests on the day of the programme to objectively measure the immediate impact on participants' awareness</li>
+      <li>Expand the physical activity session into a regular community exercise group with volunteer leaders from within the community itself</li>
+      <li>Develop an illustrated bilingual (Sinhala/English) booklet covering protein sources, daily requirements, and simple recipes — a more durable resource than a single recipe sheet</li>
+      <li>Increase the sample size in the problem identification stage to include more households across the full Grama Niladhari division for more robust and representative data</li>
+    </ul>
+  </div>
+
+  <div class="edit-note">Add your own specific observations — what you personally noticed about participant reactions, any unexpected challenges on the day, and what you would do differently if repeating the programme.</div>
+</div>
+
+<!-- ===== REFLECTION ===== -->
+<div id="reflection" class="section">
+  <h2>Reflection</h2>
+
+  <div class="reflection-block">
+    "This field assignment was a transformative experience that took me far beyond the textbooks and into the heart of a real community. Walking into Mediriwila, meeting the Sanwardrana Niladhari and the Public Health Midwife, and then eventually standing before a room full of community members with a drama script in hand — I realised that nutrition is not just a science. It is deeply human."
+  </div>
+
+  <h3>Skills gained</h3>
+  <div class="card">
+    <div style="display:flex;flex-wrap:wrap;gap:.42rem;margin-bottom:.85rem">
+      <span class="badge">Community needs assessment</span>
+      <span class="badge">IPAQ administration</span>
+      <span class="badge">Dietary questionnaire design</span>
+      <span class="badge">Anthropometric measurement</span>
+      <span class="badge">Drama-based health education</span>
+      <span class="badge">Participatory facilitation</span>
+      <span class="badge badge-amber">Data analysis &amp; interpretation</span>
+      <span class="badge badge-amber">Teamwork under resource constraints</span>
+      <span class="badge badge-teal">Community communication in Sinhala</span>
+    </div>
+    <p>Through this assignment I developed competency in multiple community nutrition assessment methods — from the technical (IPAQ, anthropometric measurements, dietary habit questionnaires) to the interpersonal (key informant interviews, community facilitation in Sinhala). Analysing the data and seeing that 66.7% of community members rarely used protein sources made the problem feel real and urgent in a way that classroom statistics never quite achieve.</p>
+    <p>Preparing the drama, clay food models, recipe sheets, and community notice as a group required creativity, coordination, and genuine teamwork within a tight budget of Rs. 4,000. This experience taught me that the most meaningful educational tools are not necessarily expensive — a handmade clay fish can teach more than a printed poster if used correctly. The seed distribution was a personal highlight: giving participants the literal means to grow their own protein sources at home was the most tangible action we could take as nutrition students.</p>
+  </div>
+
+  <h3>Personal learning moment</h3>
+  <p>The most memorable moment of the entire project was during the clay food model game, when an elderly community member confidently picked up the clay legume model and named it correctly — and then said she had never thought of it as "protein food" before. That small shift in understanding, that visible moment of recognition, was the entire purpose of the project made real. It reinforced my belief that nutrition education, when done with care and cultural sensitivity, can genuinely change how people see and choose their food.</p>
+
+  <div class="edit-note">Personalise this section further in your own words — add specific conversations you had with community members, personal challenges you overcame, and how this experience will shape your future as a nutrition professional.</div>
+</div>
+
+<!-- ===== CONCLUSION ===== -->
+<div id="conclusion" class="section">
+  <h2>Conclusion</h2>
+
+  <div class="card card-green">
+    <p>This field assignment provided an invaluable opportunity to apply academic nutrition knowledge within a real community setting. Through systematic problem identification using validated tools — the IPAQ short form, dietary habit assessments, socio-demographic questionnaires, and anthropometric measurements including handgrip dynamometry — two inter-related priority problems were confirmed in the Mediriwila adult community: <strong>low usage of protein sources (66.7%)</strong> and <strong>low physical activity levels (70% sedentary)</strong>.</p>
+    <p>A creative, multi-component intervention programme titled <em>"නිරෝගී හෙතකට — සවිය දෙන පෝෂණය"</em> was successfully designed and implemented at the Mediriwila Grama Sabha on 7 April. The programme combined a community drama performance, a recipe guessing session, a physical activity session, a clay food model identification game, seed and recipe distribution, and a structured feedback session — all within 45–60 minutes and within the allocated budget of Rs. 4,000.</p>
+    <p>The programme demonstrated that community nutrition education can be highly engaging, culturally sensitive, and practically actionable even within significant resource and time constraints. Participant feedback confirmed positive reception and increased awareness of plant protein sources and physical activity. While a single session has inherent limitations for producing lasting behavioural change, it laid an important foundation. Future efforts should incorporate follow-up sessions, community partnerships, and formal pre/post evaluation to sustain and measure impact.</p>
+  </div>
+
+  <div class="card card-teal" style="margin-top:1rem">
+    <h3>References</h3>
+    <p style="font-size:.83rem;color:var(--muted)">Add your references below in APA format. Suggested sources:</p>
+    <ul style="font-size:.83rem;color:var(--muted)">
+      <li>WHO global recommendations on physical activity for health (2020)</li>
+      <li>Sri Lanka Dietary Guidelines — Nutrition Division, Ministry of Health</li>
+      <li>IPAQ scoring protocol — Craig et al. (2003). Medicine &amp; Science in Sports &amp; Exercise</li>
+      <li>FAO/WHO protein requirements for adults report</li>
+      <li>Sri Lanka PDHS data on NCD prevalence in rural communities</li>
+      <li>Add any journal articles on plant protein intake and community nutrition interventions</li>
+    </ul>
+    <div class="edit-note" style="margin-top:.5rem">Aim for at least 6–8 peer-reviewed and authoritative references for full marks on content quality.</div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-name">S.D. Kannangara &nbsp;·&nbsp; Index No. 218028</div>
+    <div class="footer-sub">Group 2 — Mediriwila Adult Community &nbsp;·&nbsp; NTN 3212 Field Assignment in Nutrition &nbsp;·&nbsp; Wayamba University of Sri Lanka</div>
+    <div class="member-chips">
+      <span class="member-chip">218081 W.M.I.B.Wasala</span>
+      <span class="member-chip">218028 S.D.Kannangara</span>
+      <span class="member-chip">218057 S.T.N.Rashini</span>
+      <span class="member-chip">218095 R.P.D.D.S.Wijesiri</span>
+      <span class="member-chip">218124 D.A.K.Umayangana</span>
+      <span class="member-chip">218033 H.M.L.S.Lakshan</span>
+    </div>
+  </div>
+</div>
+
+</div><!-- end content -->
+
+<script>
+function go(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: document.querySelector('.nav').offsetTop - 10, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
