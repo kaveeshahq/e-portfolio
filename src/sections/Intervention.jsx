@@ -6,7 +6,7 @@ export default function Intervention() {
       title: "Clay food models",
       desc: "Handmade clay models of multiple protein sources — fish, chicken, eggs, legumes, soy — painted and labelled in Sinhala. Used in the identification game.",
       variant: "green",
-      image: "/assets/photos/intervention/03-community-notice-posters.jfif",
+      image: "/assets/photos/intervention/01-community-notice-sinhala.jfif",
     },
     {
       title: "Recipe sheets",
