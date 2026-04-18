@@ -41,7 +41,7 @@ export default function Conclusion() {
               guessing session, a physical activity session, a clay food model
               identification game, seed and recipe distribution, and a
               structured feedback session — all within 45–60 minutes and within
-              the allocated budget of Rs. 4,000.
+              the allocated budget of Rs. 5,000.
             </p>
             <p className="leading-relaxed">
               The programme demonstrated that community nutrition education can

@@ -75,7 +75,7 @@ export default function Reflection() {
             <p className="leading-relaxed">
               Preparing the drama, clay food models, recipe sheets, and
               community notice as a group required creativity, coordination, and
-              genuine teamwork within a tight budget of Rs. 4,000. This
+              genuine teamwork within a tight budget of Rs. 5,000. This
               experience taught me that the most meaningful educational tools
               are not necessarily expensive — a handmade clay fish can teach
               more than a printed poster if used correctly. The seed

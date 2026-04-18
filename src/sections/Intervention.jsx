@@ -72,6 +72,27 @@ export default function Intervention() {
         </p>
       </div>
 
+      {/* Community Notice */}
+      <div className="mt-8">
+        <h3 className="text-lg font-medium text-gray-800 mb-4">
+          Community notice in Sinhala
+        </h3>
+        <div className="bg-white rounded-lg overflow-hidden shadow-sm">
+          <img
+            src="/assets/photos/intervention/01-community-notice-sinhala.jfif"
+            alt="Community notice in Sinhala"
+            className="w-full h-auto"
+          />
+        </div>
+        <p className="text-gray-700 text-sm leading-relaxed mt-4">
+          A community notice was prepared in Sinhala and distributed in advance
+          to inform residents of Mediriwila about the intervention programme,
+          its purpose, time, and location. This notice served as a formal
+          announcement and helped build awareness and community participation in
+          the planned nutrition education session.
+        </p>
+      </div>
+
       {/* Programme Components */}
       <div className="mt-6">
         <h3 className="text-lg font-medium text-gray-800 mb-4">
