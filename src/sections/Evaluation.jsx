@@ -118,9 +118,7 @@ export default function Evaluation() {
         whileInView={{ opacity: 1 }}
         className="mt-6 bg-amber-100 border-l-4 border-amber-600 rounded-r-lg p-3 text-xs text-amber-700 italic"
       >
-        Add your own specific observations — what you personally noticed about
-        participant reactions, any unexpected challenges on the day, and what
-        you would do differently if repeating the programme.
+      
       </motion.div>
     </>
   );

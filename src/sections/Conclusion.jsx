@@ -86,14 +86,14 @@ export default function Conclusion() {
               </motion.li>
             ))}
           </ul>
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             className="bg-amber-100 border-l-4 border-amber-600 rounded-r-lg p-2 text-xs text-amber-700 italic"
           >
             Aim for at least 6–8 peer-reviewed and authoritative references for
             full marks on content quality.
-          </motion.div>
+          </motion.div> */}
         </Card>
       </motion.div>
 

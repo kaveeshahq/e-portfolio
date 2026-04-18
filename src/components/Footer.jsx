@@ -60,7 +60,7 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
-          © 2026 Wayamba University of Sri Lanka. All rights reserved.
+          © All rights reserved.
         </motion.p>
       </div>
     </motion.footer>

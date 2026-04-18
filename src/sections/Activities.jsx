@@ -58,37 +58,37 @@ export default function Activities() {
           {[
             {
               num: 1,
-              label: "Community Assessment Setup",
+              label: "",
               file: "01-community-assessment-setup.jfif",
             },
             {
               num: 2,
-              label: "IPAQ Form Administration",
+              label: "",
               file: "02-ipaq-administration.jfif",
             },
             {
               num: 3,
-              label: "Socio-demographic Questionnaire",
+              label: "",
               file: "03-socio-demographic-questionnaire.jfif",
             },
             {
               num: 4,
-              label: "Height & Weight Measurement",
+              label: "",
               file: "04-height-weight-measurement.jfif",
             },
             {
               num: 5,
-              label: "Waist & Hip Circumference",
+              label: "",
               file: "05-waist-hip-circumference.jfif",
             },
             {
               num: 6,
-              label: "Handgrip Strength Test",
+              label: "",
               file: "06-handgrip-strength-test.jfif",
             },
             {
               num: 7,
-              label: "Key Informant Interview",
+              label: "",
               file: "07-key-informant-interview.jfif",
             },
           ].map((item, idx) => (
@@ -146,32 +146,32 @@ export default function Activities() {
           {[
             {
               num: 1,
-              label: "Clay Food Models Preparation",
+              label: "",
               file: "01-clay-food-models-preparation.jfif",
             },
             {
               num: 2,
-              label: "Recipe Sheets & Materials",
+              label: "",
               file: "02-recipe-sheets-materials.jfif",
             },
             {
               num: 3,
-              label: "Community Notice & Posters",
+              label: "",
               file: "03-community-notice-posters.jfif",
             },
             {
               num: 4,
-              label: "Seeds Packaging & Distribution",
+              label: "",
               file: "04-seeds-packaging-distribution.jfif",
             },
             {
               num: 5,
-              label: "Drama Script Rehearsal",
+              label: "",
               file: "05-drama-script-rehearsal.jfif",
             },
             {
               num: 6,
-              label: "Overall Materials Setup",
+              label: "",
               file: "06-overall-materials-setup.jfif",
             },
           ].map((item, idx) => (
@@ -256,9 +256,7 @@ export default function Activities() {
         whileInView={{ opacity: 1 }}
         className="mt-6 bg-amber-100 border-l-4 border-amber-600 rounded-r-lg p-3 text-xs text-amber-700 italic"
       >
-        Add your own observations and findings from each week — e.g., number of
-        participants measured, specific responses from key informants, any
-        additional qualitative observations.
+        
       </motion.div>
     </>
   );

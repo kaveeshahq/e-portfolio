@@ -112,7 +112,7 @@ export default function Reflection() {
       </motion.div>
 
       {/* Edit Note */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         className="mt-6 bg-amber-100 border-l-4 border-amber-600 rounded-r-lg p-3 text-xs text-amber-700 italic"
@@ -121,7 +121,7 @@ export default function Reflection() {
         conversations you had with community members, personal challenges you
         overcame, and how this experience will shape your future as a nutrition
         professional.
-      </motion.div>
+      </motion.div> */}
     </>
   );
 }
